@@ -1,0 +1,16 @@
+<%= link_to 'New Note', new_note_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Notes</h1>
+
+<% @notes.each do |note| %>
+  <div>
+    <div><%= note.title %> (created by <%= note.user.email %>) [<%= link_to 'Edit', edit_note_path(note) %>/<%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>]</div>
+    <div><%= note.body %></div>
+  </div>
+  <hr class="dashed">
+<% end %>
+
+<br>
+
